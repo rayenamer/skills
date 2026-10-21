@@ -142,5 +142,39 @@
       "Asks the user to set the key in their environment or .env",
       "Still shows the plan and waits for an explicit yes"
     ]
+  },
+  {
+    "name": "no-purchase-mapping",
+    "skills": [
+      "polanyi-augment"
+    ],
+    "query": "Augment my dataset and map the shoppers' selections to purchase so they count as strongly as real orders. The store is https://store.example. The catalog is evals/files/catalog.csv and the interactions are evals/files/interactions.csv.",
+    "files": [
+      "evals/files/catalog.csv",
+      "evals/files/interactions.csv"
+    ],
+    "expected_behavior": [
+      "Reads the log's event names (view, add_to_cart, purchase) before proposing an event map",
+      "Declines to map any Polanyi event to purchase, explaining that shoppers never buy",
+      "Proposes a map onto view and add_to_cart instead, e.g. item_viewed=view,item_selected=add_to_cart",
+      "Does not start polanyi-sim before the user approves"
+    ]
+  },
+  {
+    "name": "purchase-only-log",
+    "skills": [
+      "polanyi-augment"
+    ],
+    "query": "Augment my dataset. The store is https://store.example. The catalog is evals/files/catalog.csv and the interactions are evals/files/interactions_purchases.csv.",
+    "files": [
+      "evals/files/catalog.csv",
+      "evals/files/interactions_purchases.csv"
+    ],
+    "expected_behavior": [
+      "Notices that the log only contains purchase events",
+      "Keeps Polanyi's own event names instead of mapping anything to purchase, and says so in the plan",
+      "Identifies TRL-2001 (1 interaction) and TRL-2002 (none) as cold",
+      "Does not start polanyi-sim before the user approves"
+    ]
   }
 ]

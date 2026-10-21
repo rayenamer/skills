@@ -86,7 +86,7 @@ skill-name/
 ## Development
 
 ```bash
-pip install pandas pyarrow pytest
+pip install -r requirements.txt
 pytest tests/
 ```
 
