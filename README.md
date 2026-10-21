@@ -90,7 +90,7 @@ pip install -r requirements.txt
 pytest tests/
 ```
 
-- `tests/` covers the deterministic scripts.
+- `tests/` covers the deterministic scripts. CI (`.github/workflows/ci.yml`) runs them on Python 3.11 to 3.13.
 - `evals/evals.json` lists the behaviours each skill must show (for example: asks before running, never invents item
   IDs). Run them with Haiku, Sonnet and Opus before a release.
 
@@ -102,12 +102,12 @@ three evals to `evals/evals.json` before opening a pull request.
 
 ## Security
 
-Please do not report vulnerabilities in public issues. Open an issue titled "Security contact" without any details,
-and a maintainer will reply with a private channel.
+Please do not report vulnerabilities in public issues. Use GitHub's private vulnerability reporting in the Security tab.
 
 ## Contributing
 
-Issues and pull requests are welcome. Every change is reviewed by a maintainer before merging.
+Bug reports and feature requests are welcome as GitHub Issues. Pull requests are accepted from organization members
+only; see [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
 ## License
 
