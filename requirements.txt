@@ -1,0 +1,4 @@
+# Development and test dependencies. The skill's own runtime needs are in skills/*/SKILL.md (compatibility).
+pandas>=2.0
+pyarrow>=14
+pytest>=8
